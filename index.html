@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Epoch</title>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+	<script>
+		$(function() {
+			var timestamp = parseInt("1464891934");
+			human = moment.unix(timestamp).zone(0).format('ddd, DD MMM YYYY HH:mm:ss')
+			humanLocal = moment.unix(timestamp).format('ddd, DD MMM YYYY HH:mm:ss ZZ')
+			$('.epoch').text(human + ' GMT');
+			$('.epochLocal').text(humanLocal);
+
+			var year = parseInt("2016");
+			var month = parseInt("6") - 1;
+			var day = parseInt("2");
+			var hour= parseInt("18");
+			var minute = parseInt("44");
+			var sec = parseInt("22");
+			var timezone = "GMT";
+			var epochreal = moment({ year :year, month :month, day :day, hour :hour, minute :minute, second :sec}).unix()
+			$('.epochreal').text(epochreal);
+		})
+	</script>
+</head>
+<body>
+	<div class="epoch"></div>
+	<div class="epochLocal"></div>
+	<div class="epochreal"></div>
+</body>
+</html>
